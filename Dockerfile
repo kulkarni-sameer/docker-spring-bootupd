@@ -1,4 +1,3 @@
-FROM openjdk:8
-ADD classes/artifacts/docker_spring_boot_jar/docker-spring-boot.jar docker-spring-boot.jar
-EXPOSE 5432
-ENTRYPOINT ["java", "-jar", "docker-spring-boot.jar"]
+FROM tomcat:8
+# Take the war and copy to webapps of tomcat
+COPY target/*.jar /usr/local/tomcat/webapps/
